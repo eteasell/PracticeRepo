@@ -22,9 +22,11 @@ namespace NotificationService.Controllers
         [HttpGet("")]
         public ActionResult<ApiResponse> GetBaseUrl() 
         {
-            var query = new ApiRequest {};
+            var query = new ApiRequest {Msg = "hi"};
             var result = Mediator.Send(query);
 
+            _logger.LogInformation(Ok(result).StatusCode.ToString()); // logging 200 OK
+            
             return Ok(result);
         }
 
