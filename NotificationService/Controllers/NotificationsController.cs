@@ -25,7 +25,7 @@ namespace NotificationService.Controllers
             var query = new ApiRequest {Msg = "hi"};
             var result = Mediator.Send(query);
 
-            _logger.LogInformation(Ok(result).StatusCode.ToString()); // logging 200 OK
+            _logger.LogInformation($" Request Status: {Ok(result).StatusCode.ToString()}");
             
             return Ok(result);
         }
@@ -33,7 +33,7 @@ namespace NotificationService.Controllers
         //  [HttpPost("Notify")]
         // public async Task<ActionResult> Notify() 
         // {
-
+        //     return Ok();
         // }
     }
 }

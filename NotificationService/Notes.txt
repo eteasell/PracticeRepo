@@ -1,0 +1,23 @@
+Project Notes
+
+If we want to make a notification service, we will need to connect to a DB cloud service to store 'subscribers', 
+meaning in the simple case webhooks.
+
+So we post a webhook subscription, so that 'messages/notifications' received to the API can forward them to the webhook.
+
+I guess the simple option is to just make an API request containing the webhook and the 'notification' and this API just posts it.
+
+Does that even count as a notification service then? What am I actually doing?
+
+How do I manage my own DB? How do I access it?
+
+https://www.mongodb.com/developer/languages/csharp/csharp-crud-tutorial/ 
+
+MiniCluster
+
+User: teasella
+PAssword: lkrVRBLJrkVxpH4m
+
+DB accessible only from this IP...
+
+https://www.mongodb.com/docs/drivers/csharp/current/quick-start/#std-label-csharp-quickstart 

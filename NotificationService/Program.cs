@@ -1,11 +1,15 @@
 using Microsoft.Extensions.Logging;
 using Serilog;
 using System.Reflection;
+using MongoDB.Driver;
 
 namespace NotificationService
 {
     public class Program
     {
+
+        private static string DBPwd = "lkrVRBLJrkVxpH4m";
+        private static string DbUri = $"mongodb+srv://teasella:{DBPwd}@minicluster.ivnvrlw.mongodb.net/?retryWrites=true&w=majority";
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
@@ -44,6 +48,17 @@ namespace NotificationService
 
 
             app.MapControllers();
+
+            MongoClient dbClient = new MongoClient(DbUri);
+
+            var dbList = dbClient.ListDatabases().ToList();
+
+            Console.WriteLine("List of Databases in this server:");
+
+            foreach (var db in dbList)
+            {
+                Console.WriteLine(db);
+            }
 
             app.Run();
         }
